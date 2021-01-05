@@ -15,4 +15,10 @@ public class ClientesController {
 	public List<Cliente> listar() {
 		return clienteRepository.findAll();
 	}
+	
+	@PostMapping
+	@ResponseStatus(HttpStatus.CREATED)
+	public Cliente cadastro(@RequestBody Cliente cliente) {
+		return clienteRepository.save(cliente);
+	}
 }
